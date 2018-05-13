@@ -6,9 +6,12 @@
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <ApplicationInsightsResourceId>/subscriptions/3f090cba-0937-4aef-957f-f50e6e1ccf14/resourcegroups/OpsDev/providers/microsoft.insights/components/OpsDev</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/3f090cba-0937-4aef-957f-f50e6e1ccf14/resourcegroups/OpsDev/providers/microsoft.insights/components/OpsDev</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.SnapshotCollector">
       <Version>1.0.11</Version>
     </PackageReference>
@@ -137,6 +140,10 @@
     <TypeScriptCompile Include="ClientApp\store\Rooms.ts" />
     <TypeScriptCompile Include="ClientApp\store\Search.ts" />
     <TypeScriptCompile Include="ClientApp\store\User.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
